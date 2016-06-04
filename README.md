@@ -1,3 +1,3 @@
 # DigitBlock
-Just a fake 2048 <br/>
-First complete attempt on android.
+Just a fake 2048. <br/>
+The first complete attempt on android.
