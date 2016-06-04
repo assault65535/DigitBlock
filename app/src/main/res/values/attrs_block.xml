@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="Block">
+        <attr name="Color" format="color"/>
+        <attr name="Width" format="integer"/>
+        <attr name="Height" format="integer"/>
+    </declare-styleable>
+</resources>

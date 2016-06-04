@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@color/background"
+        tools:context="com.tnecesoc.digitblock.EntranceActivity">
+
+    <include android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/stroke"
+             android:layout_marginLeft="250dp"
+             layout="@layout/game_frame" android:layout_gravity="right|center_vertical"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="240dp"
+            android:background="@drawable/background_entrance"
+            android:layout_height="match_parent" android:layout_gravity="left|top">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="100sp"
+                android:textColor="@color/textColor"
+                android:text="@string/Title"
+                android:id="@+id/textView"
+                android:gravity="center_vertical|center|center_horizontal"/>
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle"
+                android:text="@string/newGameGuidance"
+                android:textColor="@android:color/white"
+                android:id="@+id/newGameButton"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_alignParentEnd="true" android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_margin="15dp">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_in_list"
+                    android:id="@+id/layout_hiscore"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/entrance_background"
+                        android:src="@drawable/hiscore"
+                        android:id="@+id/imageView1"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:textSize="24sp"
+                        android:text="@string/entranceHiScoreGuidance"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/layout_achievement"
+                    android:background="@drawable/button_in_list"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/entrance_background"
+                        android:src="@drawable/achievement"
+                        android:id="@+id/imageView2"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:paddingLeft="10dp"
+                        android:text="@string/achievementGuidance"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_in_list_end"
+                    android:id="@+id/layout_dailySignIn"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/entrance_background"
+                        android:src="@drawable/calendar"
+                        android:id="@+id/imageView3"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:paddingLeft="10dp"
+                        android:layout_gravity="center|center_vertical"
+                        android:text="@string/signInGuidance"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

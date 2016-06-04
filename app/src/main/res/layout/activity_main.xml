@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:Block="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@color/background"
+        tools:context="com.tnecesoc.digitblock.MainActivity">
+
+
+    <include android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/stroke"
+             layout="@layout/game_frame" android:layout_centerVertical="true" android:layout_centerHorizontal="true"
+             android:id="@+id/include"/>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/include"
+            android:layout_centerHorizontal="true" android:id="@+id/relativeLayout">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:layout_marginTop="48dp"
+                android:text="@string/scoreGuidance"
+                android:id="@+id/textView4"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/nowScore"
+                android:textSize="24sp"
+                android:layout_below="@+id/textView4" android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout2">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="24sp"
+                  android:text="@string/HiScoreGuidance" android:id="@+id/textView3"
+                  android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+                  android:layout_marginTop="48dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="24sp"
+                android:id="@+id/HiScore"
+                android:layout_below="@+id/textView3" android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:src="@drawable/back"
+            android:layout_alignTop="@+id/restart" android:layout_alignStart="@+id/include"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/restart"
+            android:src="@drawable/restart"
+            android:layout_alignBottom="@+id/relativeLayout2" android:layout_alignEnd="@+id/include"/>
+
+</RelativeLayout>

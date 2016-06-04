@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Fake2048</string>
+
+    <string name="block2">2</string>
+    <string name="block4">4</string>
+    <string name="block8">8</string>
+    <string name="block16">16</string>
+    <string name="block32">32</string>
+    <string name="block64">64</string>
+    <string name="block128">128</string>
+    <string name="block256">256</string>
+    <string name="block512">512</string>
+    <string name="block1024">1024</string>
+    <string name="block2048">2048</string>
+
+    <string name="Title">Fake 2048</string>
+    <string name="guidance">Scroll to start</string>
+    <string name="scoreGuidance">Your Score:</string>
+    <string name="HiScoreGuidance">Higher score:</string>
+    <string name="newGameGuidance">New Game</string>
+    <string name="achievementGuidance">Achievement</string>
+    <string name="entranceHiScoreGuidance">Hiscore</string>
+    <string name="signInGuidance">Daily sign in</string>
+    <string name="HiscorePageGuidance">Score\nTOP 10</string>
+    <string name="DailySignInPageGuidance">Guess! What is it?</string>
+    <string name="SignInButtonGuidance">Sign in!</string>
+    <string name="backGuidanceInHiscorePage">back</string>
+    <string name="AchievementPageGuidance">Achievements</string>
+
+</resources>

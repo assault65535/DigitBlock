@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:Block="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/table"
+            android:background="@color/background">
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/b14_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b14"
+                        android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b24_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b24" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b34_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:id="@+id/b34" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b44_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b44" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/b13_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b13" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/b23_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b23" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/b33_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:id="@+id/b33" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b43_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b43" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/b12_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b12" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b22_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b22" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b32_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b32" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/b42_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b42" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/b11_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b11" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b21_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b21" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b31_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b31" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/b41_pos"
+                android:layout_margin="@dimen/blocks_margin">
+                <com.tnecesoc.Views.Block
+                        Block:color="@color/background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b41" android:layout_gravity="left|top"/>
+            </FrameLayout>
+
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
