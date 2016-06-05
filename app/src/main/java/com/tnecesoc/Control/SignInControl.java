@@ -21,6 +21,8 @@ public class SignInControl {
     public SignInControl() {
         this.signInFileControl = new SignInFileControl();
 
+        signInFileControl.initFile();
+
         signInRecordCache = signInFileControl.getSignInRecord();
 
         if (signInRecordCache.isEmpty()) {
@@ -37,7 +39,7 @@ public class SignInControl {
         
     }
 
-    private boolean isContinuous(BigInteger last, BigInteger now) {
+    public static boolean isContinuous(BigInteger last, BigInteger now) {
 
         return !(now.subtract(last).compareTo(BigInteger.valueOf(1)) == 1);
 
@@ -65,12 +67,12 @@ public class SignInControl {
             return 0;
         }
 
-        int ans = 0;
+        int ans = 1;
         BigInteger prev = BigInteger.valueOf(0);
 
         for (BigInteger i : signInRecordCache) {
 
-            if (ans == 0) {
+            if (ans == 1) {
 
                 prev = i;
 
@@ -86,7 +88,7 @@ public class SignInControl {
                 prev = i;
 
             } else {
-                ans = 0;
+                ans = 1;
             }
         }
 

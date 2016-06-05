@@ -1,8 +1,8 @@
 package com.tnecesoc.Control;
 
-import android.app.Activity;
 import android.widget.Toast;
 import com.tnecesoc.Model.Achievement.GameAchievement;
+import com.tnecesoc.digitblock.MainActivity;
 
 import java.util.ArrayList;
 
@@ -11,13 +11,13 @@ import java.util.ArrayList;
  */
 public class AchievementControl {
 
-    Activity activity;
+    private MainActivity activity;
 
     private GameBoard gameBoard;
 
     ArrayList<GameAchievement> cache;
 
-    public AchievementControl(Activity activity, GameBoard gameBoard) {
+    public AchievementControl(MainActivity activity, GameBoard gameBoard) {
         this.activity = activity;
         this.gameBoard = gameBoard;
     }

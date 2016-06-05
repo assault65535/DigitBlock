@@ -22,6 +22,16 @@ public class SignInFileControl {
 
     public void initFile() {
 
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat formatter = new SimpleDateFormat("dd");
+        Date curDate = new Date(System.currentTimeMillis());
+        String str = formatter.format(curDate);
+
+        if (str.equals("01")) {
+            //noinspection ResultOfMethodCallIgnored
+            signInFile.delete();
+        }
+
         if (signInFile.exists()) {
             return;
         }

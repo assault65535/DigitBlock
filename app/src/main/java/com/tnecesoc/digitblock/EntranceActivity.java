@@ -6,11 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import com.tnecesoc.Control.ScoreControl;
 
 public class EntranceActivity extends AppCompatActivity {
-
-    ScoreControl scoreControl;
 
     float x1, x2, y1, y2; // used in onTouchEvent()
 
@@ -87,7 +84,12 @@ public class EntranceActivity extends AppCompatActivity {
             }
         });
 
-
+        findViewById(R.id.layout_quit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

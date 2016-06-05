@@ -103,7 +103,7 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/button_in_list_end"
+                    android:background="@drawable/button_in_list"
                     android:id="@+id/layout_dailySignIn"
                     android:gravity="center_vertical"
                     android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
@@ -121,6 +121,30 @@
                         android:paddingLeft="10dp"
                         android:layout_gravity="center|center_vertical"
                         android:text="@string/signInGuidance"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_in_list_end"
+                    android:id="@+id/layout_quit"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/entrance_background"
+                        android:src="@drawable/quit"
+                        android:id="@+id/imageView4"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:paddingLeft="10dp"
+                        android:layout_gravity="center|center_vertical"
+                        android:text="@string/quitGuidance"/>
             </LinearLayout>
 
         </LinearLayout>

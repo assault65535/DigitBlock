@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
     // check if isFailure() returns true every 10 moves.
     private int moveCount;
 
-    // used to replace the appearance in declareGameOver()
-    private Canvas initialAppearance;
-
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -158,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (gameBoard.saveHiscore()) {
-                    Toast.makeText(MainActivity.this, "Your score is recorded.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "New record!", Toast.LENGTH_SHORT).show();
                 }
 
                 finish();

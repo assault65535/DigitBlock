@@ -26,5 +26,6 @@
     <string name="SignInButtonGuidance">Sign in!</string>
     <string name="backGuidanceInHiscorePage">back</string>
     <string name="AchievementPageGuidance">Achievements</string>
+    <string name="quitGuidance">Quit</string>
 
 </resources>

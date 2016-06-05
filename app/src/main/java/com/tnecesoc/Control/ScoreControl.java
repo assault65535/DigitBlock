@@ -44,6 +44,8 @@ public class ScoreControl {
                 index = i;
                 break;
             }
+
+            index = len;
         }
 
         if (index == 0) {
@@ -57,6 +59,10 @@ public class ScoreControl {
             }
 
             result.add(hiscoreCache.get(i));
+        }
+
+        if (index == len) {
+            result.add(score);
         }
 
         hiscoreCache = result;
