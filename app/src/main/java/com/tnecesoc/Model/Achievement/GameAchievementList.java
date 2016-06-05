@@ -26,7 +26,7 @@ public class GameAchievementList {
     public static ArrayList<GameAchievement> generateListBasedOn(ArrayList<Boolean> rawFacts) {
         ArrayList<GameAchievement> ans = new ArrayList<>();
 
-        int realLength = 11;
+        int realLength = findIdByClass.size();
 
         Boolean[] facts = new Boolean[realLength];
         int len = rawFacts.size();

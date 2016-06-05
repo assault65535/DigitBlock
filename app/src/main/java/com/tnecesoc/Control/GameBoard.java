@@ -85,7 +85,7 @@ public class GameBoard {
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
                 data[i][j] = 0;
-                inGameAnimationControl.removeBlockAt(activity.screen_pos.get(activity.screen[i][j]));
+                inGameAnimationControl.resetCellIn(i, j);
             }
         }
         generateNewBlock();
@@ -105,7 +105,7 @@ public class GameBoard {
 
         data[x][y] = 2;
 
-        inGameAnimationControl.generateNewBlockIn(activity.screen_pos.get(activity.screen[x][y]));
+        inGameAnimationControl.attachNewBlockIn(x, y);
     }
 
     public void moveDown() {
@@ -115,21 +115,19 @@ public class GameBoard {
 
                     if (data[i][pivot] == data[i][j] || data[i][pivot] == 0) {
 
-                        inGameAnimationControl.annexBlock(i, pivot, data[i][pivot], i, j, data[i][j]);
-
-                        data[i][pivot] += data[i][j];
-                        data[i][j] = 0;
+                        inGameAnimationControl.mergeBlock(i, pivot, data[i][pivot], i, j, data[i][j]);
 
                     } else {
-                        inGameAnimationControl.annexBlock(i, pivot + 1, data[i][pivot + 1], i, j, data[i][j]);
+                        inGameAnimationControl.mergeBlock(i, pivot + 1, data[i][pivot + 1], i, j, data[i][j]);
 
                         if (++pivot == j) {
                             continue;
                         }
 
-                        data[i][pivot] += data[i][j];
-                        data[i][j] = 0;
                     }
+
+                    data[i][pivot] += data[i][j];
+                    data[i][j] = 0;
 
                 }
             }
@@ -144,23 +142,19 @@ public class GameBoard {
 
                     if (data[i][pivot] == data[i][j] || data[i][pivot] == 0) {
 
-                        inGameAnimationControl.annexBlock(i, pivot, data[i][pivot], i, j, data[i][j]);
-
-                        data[i][pivot] += data[i][j];
-                        data[i][j] = 0;
+                        inGameAnimationControl.mergeBlock(i, pivot, data[i][pivot], i, j, data[i][j]);
 
                     } else {
-                        inGameAnimationControl.annexBlock(i, pivot - 1, data[i][pivot - 1], i, j, data[i][j]);
+                        inGameAnimationControl.mergeBlock(i, pivot - 1, data[i][pivot - 1], i, j, data[i][j]);
 
                         if (--pivot == j) {
                             continue;
                         }
 
-                        data[i][pivot] += data[i][j];
-                        data[i][j] = 0;
                     }
 
-
+                    data[i][pivot] += data[i][j];
+                    data[i][j] = 0;
 
                 }
             }
@@ -175,22 +169,19 @@ public class GameBoard {
 
                     if (data[pivot][i] == data[j][i] || data[pivot][i] == 0) {
 
-                        inGameAnimationControl.annexBlock(pivot, i, data[pivot][i], j, i, data[j][i]);
-
-                        data[pivot][i] += data[j][i];
-                        data[j][i] = 0;
+                        inGameAnimationControl.mergeBlock(pivot, i, data[pivot][i], j, i, data[j][i]);
 
                     } else {
 
-                        inGameAnimationControl.annexBlock(pivot + 1, i, data[pivot + 1][i], j, i, data[j][i]);
+                        inGameAnimationControl.mergeBlock(pivot + 1, i, data[pivot + 1][i], j, i, data[j][i]);
 
                         if (++pivot == j) {
                             continue;
                         }
-
-                        data[pivot][i] += data[j][i];
-                        data[j][i] = 0;
                     }
+
+                    data[pivot][i] += data[j][i];
+                    data[j][i] = 0;
 
                 }
             }
@@ -205,22 +196,20 @@ public class GameBoard {
 
                     if (data[pivot][i] == data[j][i] || data[pivot][i] == 0) {
 
-                        inGameAnimationControl.annexBlock(pivot, i, data[pivot][i], j, i, data[j][i]);
-
-                        data[pivot][i] += data[j][i];
-                        data[j][i] = 0;
+                        inGameAnimationControl.mergeBlock(pivot, i, data[pivot][i], j, i, data[j][i]);
 
                     } else {
 
-                        inGameAnimationControl.annexBlock(pivot - 1, i, data[pivot - 1][i], j, i, data[j][i]);
+                        inGameAnimationControl.mergeBlock(pivot - 1, i, data[pivot - 1][i], j, i, data[j][i]);
 
                         if (--pivot == j) {
                             continue;
                         }
 
-                        data[pivot][i] += data[j][i];
-                        data[j][i] = 0;
                     }
+
+                    data[pivot][i] += data[j][i];
+                    data[j][i] = 0;
 
                 }
             }

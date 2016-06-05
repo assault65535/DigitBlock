@@ -1,11 +1,9 @@
 package com.tnecesoc.Control;
 
-import android.app.Activity;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import com.tnecesoc.Views.Block;
 import com.tnecesoc.digitblock.MainActivity;
 
@@ -22,12 +20,35 @@ public class InGameAnimationControl {
         this.activity = activity;
     }
 
-    public HashMap<FrameLayout, Block> belongings = new HashMap<FrameLayout, Block>();
+    private HashMap<FrameLayout, Block> blockList = new HashMap<FrameLayout, Block>();
 
-    public void generateNewBlockIn(FrameLayout position) {
+    private void internallyDeleteBlockIn(int x, int y) {
 
-        Block theBlock = new Block(activity);
-        theBlock.setValue(2);
+        FrameLayout position = activity.theCellLocatedIn[x][y];
+
+        Block target = blockList.get(position);
+
+        blockList.put(position, null);
+
+        position.removeView(target);
+        
+    }
+
+    private void internallyAddBlockIn(int x, int y, Block target) {
+
+        FrameLayout position = activity.theCellLocatedIn[x][y];
+
+        blockList.put(position, target);
+
+        position.addView(target);
+
+    }
+
+    void attachNewBlockIn(int x, int y) {
+
+        Block newBlock = new Block(activity);
+
+        newBlock.setValue(2);
 
         ScaleAnimation animation = new ScaleAnimation(
                 0.0f,
@@ -40,66 +61,68 @@ public class InGameAnimationControl {
                 0.5f
         );
         animation.setDuration(200);
-        theBlock.setAnimation(animation);
+        newBlock.setAnimation(animation);
 
-        position.addView(theBlock);
-        belongings.put(position, theBlock);
+        internallyAddBlockIn(x, y, newBlock);
 
         animation.startNow();
     }
 
-    public void annexBlock(
-                                  int annexerX,
-                                  int annexerY,
-                                  int annexerValue,
-                                  int targetX,
-                                  int targetY,
-                                  int targetValue
+    void mergeBlock(
+            int conquerorX,
+            int conquerorY,
+            int conquerorValue,
+            int targetX,
+            int targetY,
+            int targetValue
     ) {
 
-        if ((annexerX == targetX) && (annexerY == targetY)) {
+        if (conquerorX == targetX && conquerorY == targetY) {
             return;
         }
 
-        FrameLayout annexer_pos = activity.screen_pos.get(activity.screen[annexerX][annexerY]);
-        FrameLayout target_pos = activity.screen_pos.get(activity.screen[targetX][targetY]);
-
-        Block annexer = belongings.get(annexer_pos);
-        Block target = belongings.get(target_pos);
+        Block conqueror = blockList.get(activity.theCellLocatedIn[conquerorX][conquerorY]);
+        Block target = blockList.get(activity.theCellLocatedIn[targetX][targetY]);
 
         if (target == null) {
             return;
         }
 
-        int dir_horizonal = targetX - annexerX;
-        int dir_vertical = targetY - annexerY;
+        int horizontalDistance = targetX - conquerorX;
+        int verticalDistance = targetY - conquerorY;
 
-        TranslateAnimation initialAnimation = new TranslateAnimation(0, -1000 * dir_horizonal, 0, 1000 * dir_vertical);
-        TranslateAnimation finalAnimation = new TranslateAnimation(1000*dir_horizonal, 0, -1000 * dir_vertical, 0);
-        finalAnimation.setDuration(300);
-        initialAnimation.setDuration(300);
+        TranslateAnimation leaveAnimation = new TranslateAnimation(0, -1000 * horizontalDistance, 0, 1000 * verticalDistance);
+        TranslateAnimation approachAnimation = new TranslateAnimation(1000 * horizontalDistance, 0, -1000 * verticalDistance, 0);
+        approachAnimation.setDuration(300);
+        leaveAnimation.setDuration(300);
 
-        target.setAnimation(initialAnimation);
-        if (annexer != null) {
-            annexer.setAnimation(initialAnimation);
+        target.setAnimation(leaveAnimation);
+
+        if (conqueror != null) {
+            conqueror.setAnimation(leaveAnimation);
         }
-        initialAnimation.startNow();
+
+        leaveAnimation.startNow();
 
         Block finalState = new Block(activity);
-        finalState.setValue(annexerValue + targetValue);
-        annexer_pos.addView(finalState);
+        finalState.setValue(conquerorValue + targetValue);
 
-        finalState.setAnimation(finalAnimation);
-        finalAnimation.startNow();
+        internallyDeleteBlockIn(conquerorX, conquerorY);
 
-        belongings.put(target_pos, null);
-        belongings.put(annexer_pos, finalState);
-        target_pos.removeView(target);
-        annexer_pos.removeView(annexer);
+        finalState.setAnimation(approachAnimation);
+
+        internallyAddBlockIn(conquerorX, conquerorY, finalState);
+
+        approachAnimation.startNow();
+
+        internallyDeleteBlockIn(targetX, targetY);
+
     }
 
 
-    public void removeBlockAt(FrameLayout position) {
+    void resetCellIn(int x, int y) {
+
+        FrameLayout position = activity.theCellLocatedIn[x][y];
 
         ScaleAnimation animation = new ScaleAnimation(
                 1.0f,
@@ -113,7 +136,7 @@ public class InGameAnimationControl {
         );
         animation.setDuration(200);
 
-        Block target = belongings.get(position);
+        Block target = blockList.get(position);
 
         if (target == null) {
             return;
@@ -124,7 +147,7 @@ public class InGameAnimationControl {
         animation.startNow();
 
         position.removeView(target);
-        belongings.put(position, null);
+        blockList.put(position, null);
     }
 
 }

@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     public HashMap<Block, FrameLayout> screen_pos;
 
+    public FrameLayout[][] theCellLocatedIn;
+
     //　used in onTouchEvent()
     private float x1, x2, y1, y2;
 
@@ -131,6 +133,28 @@ public class MainActivity extends AppCompatActivity {
         screen_pos.put(screen[3][1], (FrameLayout) findViewById(R.id.b42_pos));
         screen_pos.put(screen[3][2], (FrameLayout) findViewById(R.id.b43_pos));
         screen_pos.put(screen[3][3], (FrameLayout) findViewById(R.id.b44_pos));
+
+        theCellLocatedIn = new FrameLayout[4][4];
+
+        theCellLocatedIn[0][0] = (FrameLayout) findViewById(R.id.b11_pos);
+        theCellLocatedIn[0][1] = (FrameLayout) findViewById(R.id.b12_pos);
+        theCellLocatedIn[0][2] = (FrameLayout) findViewById(R.id.b13_pos);
+        theCellLocatedIn[0][3] = (FrameLayout) findViewById(R.id.b14_pos);
+
+        theCellLocatedIn[1][0] = (FrameLayout) findViewById(R.id.b21_pos);
+        theCellLocatedIn[1][1] = (FrameLayout) findViewById(R.id.b22_pos);
+        theCellLocatedIn[1][2] = (FrameLayout) findViewById(R.id.b23_pos);
+        theCellLocatedIn[1][3] = (FrameLayout) findViewById(R.id.b24_pos);
+
+        theCellLocatedIn[2][0] = (FrameLayout) findViewById(R.id.b31_pos);
+        theCellLocatedIn[2][1] = (FrameLayout) findViewById(R.id.b32_pos);
+        theCellLocatedIn[2][2] = (FrameLayout) findViewById(R.id.b33_pos);
+        theCellLocatedIn[2][3] = (FrameLayout) findViewById(R.id.b34_pos);
+
+        theCellLocatedIn[3][0] = (FrameLayout) findViewById(R.id.b41_pos);
+        theCellLocatedIn[3][1] = (FrameLayout) findViewById(R.id.b42_pos);
+        theCellLocatedIn[3][2] = (FrameLayout) findViewById(R.id.b43_pos);
+        theCellLocatedIn[3][3] = (FrameLayout) findViewById(R.id.b44_pos);
 
         nowScore = (TextView) findViewById(R.id.nowScore);
         higherScore = (TextView) findViewById(R.id.HiScore);
