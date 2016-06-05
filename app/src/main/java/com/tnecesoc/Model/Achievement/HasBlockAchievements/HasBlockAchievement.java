@@ -9,14 +9,14 @@ public abstract class HasBlockAchievement extends GameAchievement {
 
     private int base;
 
-    public HasBlockAchievement(String name, boolean isAchieved, String detail, int base) {
+    protected HasBlockAchievement(String name, boolean isAchieved, String detail, int base) {
         super(name, isAchieved, detail);
         this.base = base;
     }
 
     @Override
     public String toString() {
-        return getName() + isFinished().toString();
+        return "[" + getName() + "]" + isFinished().toString();
     }
 
     @Override
@@ -29,7 +29,7 @@ public abstract class HasBlockAchievement extends GameAchievement {
 
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
-                if (data[i][j] >= base) {
+                if (data[i][j] == base) {
                     setFinished(true);
                     return;
                 }

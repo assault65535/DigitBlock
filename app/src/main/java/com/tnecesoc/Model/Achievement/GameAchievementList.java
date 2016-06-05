@@ -14,7 +14,7 @@ public class GameAchievementList {
 
 
     /**
-     * corespondent relations:
+     * corresponding relations:
      * 0: YouStarted
      * 1: YouMoved
      * 2: Block8Get
