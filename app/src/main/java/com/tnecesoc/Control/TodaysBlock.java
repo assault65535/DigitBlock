@@ -13,27 +13,27 @@ public class TodaysBlock {
 
     private SignInControl signInControl;
 
-    private int currentPreSistentDayCount;
+    private int currentPersistentDayCount;
 
     public TodaysBlock(DailySignInActivity activity) {
         this.activity = activity;
         signInControl = new SignInControl();
-        currentPreSistentDayCount = signInControl.getPresistentDayCount();
+        currentPersistentDayCount = signInControl.getPersistentDayCount();
 
         animationControl = new TodaysBlockAnimationControl(activity);
 
         animationControl.generateNewBlockInPosWithValue(
                 activity.todaysBlock_pos,
-                currentPreSistentDayCount
+                currentPersistentDayCount
         );
     }
 
     public boolean signIn() {
         if (signInControl.signIn()) {
-            currentPreSistentDayCount++;
+            currentPersistentDayCount++;
             animationControl.generateNewBlockInPosWithValue(
                     activity.todaysBlock_pos,
-                    currentPreSistentDayCount
+                    currentPersistentDayCount
             );
             return true;
         } else {

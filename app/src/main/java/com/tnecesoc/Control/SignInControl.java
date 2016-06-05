@@ -61,7 +61,7 @@ public class SignInControl {
         
     }
     
-    public int getPresistentDayCount() {
+    public int getPersistentDayCount() {
 
         if (!isContinuous(lastDate, nowDate)) {
             return 0;
