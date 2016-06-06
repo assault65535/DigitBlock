@@ -7,6 +7,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import com.tnecesoc.Control.TodaysBlock;
+import com.tnecesoc.Views.Block;
 
 public class DailySignInActivity extends AppCompatActivity {
 
@@ -18,6 +19,10 @@ public class DailySignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_sign_in);
+
+        Block tmp = (Block) findViewById(R.id.blockTodayBackground);
+        tmp.resize(this);
+
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         getWindow().setFlags(flag, flag);
 

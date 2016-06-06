@@ -1,12 +1,10 @@
 package com.tnecesoc.Views;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 import com.tnecesoc.Model.Consts.MyColor;
@@ -19,8 +17,15 @@ public class Block extends View {
 
     private int width = 200;
     private int height = 200;
+    private int textSize = 64;
     private int color = MyColor.BLOCK_COLOR[0];
     private int value = 0;
+
+    public Block(Activity activity) {
+        super(activity);
+        init(null, 0);
+        resize(activity);
+    }
 
     public Block(Context context) {
         super(context);
@@ -51,9 +56,18 @@ public class Block extends View {
         return value;
     }
 
-    public void setValueT(int value) {
-        this.value = value;
-        this.color = MyColor.findColorByInt(value);
+    public void resize(Activity activity) {
+
+        Point point = new Point();
+
+        activity.getWindowManager().getDefaultDisplay().getRealSize(point);
+
+        double ratio = point.x / 1080d;
+
+        this.width = (int) (200 * ratio);
+        this.height = (int) (200 * ratio);
+        this.textSize = (int) (64 * ratio);
+        this.invalidate();
     }
 
     private void init(AttributeSet attrs, int defStyle) {
@@ -74,6 +88,7 @@ public class Block extends View {
 
         // TODO: consider storing these as member variables to reduce
         // allocations per draw cycle.
+
         @SuppressLint("DrawAllocation")
         Rect rect = new Rect(0, 0, width, height);
         @SuppressLint("DrawAllocation")
@@ -84,7 +99,7 @@ public class Block extends View {
         if (value > 0) {
             paint.setColor((value >= 8 ? Color.WHITE : Color.DKGRAY));
             paint.setFakeBoldText(true);
-            paint.setTextSize(64);
+            paint.setTextSize(textSize);
             paint.setAntiAlias(true);
             paint.setTextAlign(Paint.Align.CENTER);
 

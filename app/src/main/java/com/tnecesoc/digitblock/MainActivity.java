@@ -1,8 +1,5 @@
 package com.tnecesoc.digitblock;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -20,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private GameBoard gameBoard = new GameBoard(this);
 
-    public Block[][] screen;
+
 
     private TextView nowScore, higherScore;
 
@@ -90,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         getWindow().setFlags(flag, flag);
 
-        screen = new Block[4][4];
+        Block[][] screen = new Block[4][4];
 
         screen[0][0] = (Block) findViewById(R.id.b11);
         screen[0][1] = (Block) findViewById(R.id.b12);
@@ -112,27 +109,11 @@ public class MainActivity extends AppCompatActivity {
         screen[3][2] = (Block) findViewById(R.id.b43);
         screen[3][3] = (Block) findViewById(R.id.b44);
 
-        screen_pos = new HashMap<Block, FrameLayout>();
-
-        screen_pos.put(screen[0][0], (FrameLayout) findViewById(R.id.b11_pos));
-        screen_pos.put(screen[0][1], (FrameLayout) findViewById(R.id.b12_pos));
-        screen_pos.put(screen[0][2], (FrameLayout) findViewById(R.id.b13_pos));
-        screen_pos.put(screen[0][3], (FrameLayout) findViewById(R.id.b14_pos));
-
-        screen_pos.put(screen[1][0], (FrameLayout) findViewById(R.id.b21_pos));
-        screen_pos.put(screen[1][1], (FrameLayout) findViewById(R.id.b22_pos));
-        screen_pos.put(screen[1][2], (FrameLayout) findViewById(R.id.b23_pos));
-        screen_pos.put(screen[1][3], (FrameLayout) findViewById(R.id.b24_pos));
-
-        screen_pos.put(screen[2][0], (FrameLayout) findViewById(R.id.b31_pos));
-        screen_pos.put(screen[2][1], (FrameLayout) findViewById(R.id.b32_pos));
-        screen_pos.put(screen[2][2], (FrameLayout) findViewById(R.id.b33_pos));
-        screen_pos.put(screen[2][3], (FrameLayout) findViewById(R.id.b34_pos));
-
-        screen_pos.put(screen[3][0], (FrameLayout) findViewById(R.id.b41_pos));
-        screen_pos.put(screen[3][1], (FrameLayout) findViewById(R.id.b42_pos));
-        screen_pos.put(screen[3][2], (FrameLayout) findViewById(R.id.b43_pos));
-        screen_pos.put(screen[3][3], (FrameLayout) findViewById(R.id.b44_pos));
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                screen[i][j].resize(this);
+            }
+        }
 
         theCellLocatedIn = new FrameLayout[4][4];
 
