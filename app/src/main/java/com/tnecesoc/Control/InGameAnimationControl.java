@@ -20,15 +20,15 @@ public class InGameAnimationControl {
         this.activity = activity;
     }
 
-    private HashMap<FrameLayout, Block> blockList = new HashMap<FrameLayout, Block>();
+    private HashMap<FrameLayout, Block> blockCollection = new HashMap<FrameLayout, Block>();
 
     private void internallyDeleteBlockIn(int x, int y) {
 
         FrameLayout position = activity.theCellLocatedIn[x][y];
 
-        Block target = blockList.get(position);
+        Block target = blockCollection.get(position);
 
-        blockList.put(position, null);
+        blockCollection.put(position, null);
 
         position.removeView(target);
         
@@ -38,7 +38,7 @@ public class InGameAnimationControl {
 
         FrameLayout position = activity.theCellLocatedIn[x][y];
 
-        blockList.put(position, target);
+        blockCollection.put(position, target);
 
         position.addView(target);
 
@@ -81,8 +81,8 @@ public class InGameAnimationControl {
             return;
         }
 
-        Block conqueror = blockList.get(activity.theCellLocatedIn[conquerorX][conquerorY]);
-        Block target = blockList.get(activity.theCellLocatedIn[targetX][targetY]);
+        Block conqueror = blockCollection.get(activity.theCellLocatedIn[conquerorX][conquerorY]);
+        Block target = blockCollection.get(activity.theCellLocatedIn[targetX][targetY]);
 
         if (target == null) {
             return;
@@ -136,7 +136,7 @@ public class InGameAnimationControl {
         );
         animation.setDuration(200);
 
-        Block target = blockList.get(position);
+        Block target = blockCollection.get(position);
 
         if (target == null) {
             return;
@@ -146,8 +146,7 @@ public class InGameAnimationControl {
 
         animation.startNow();
 
-        position.removeView(target);
-        blockList.put(position, null);
+        internallyDeleteBlockIn(x, y);
     }
 
 }

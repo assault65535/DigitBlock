@@ -17,9 +17,7 @@ import java.util.Map;
 
 public class AchievementActivity extends AppCompatActivity {
 
-    ListView achievementList;
-
-    AchievementFileControl achievementFileControl;
+    private AchievementFileControl achievementFileControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +33,10 @@ public class AchievementActivity extends AppCompatActivity {
             }
         });
 
-        achievementList = (ListView) findViewById(R.id.listView2);
+        ListView achievementList = (ListView) findViewById(R.id.listView2);
         achievementFileControl = new AchievementFileControl();
 
+        assert achievementList != null;
         achievementList.setAdapter(new SimpleAdapter(
                 this,
                 givePresetData(),
@@ -48,7 +47,7 @@ public class AchievementActivity extends AppCompatActivity {
 
     }
 
-    List<Map<String, Object>> givePresetData() {
+    private List<Map<String, Object>> givePresetData() {
 
 
         final ArrayList<GameAchievement> rawData = achievementFileControl.getAchievementRecord();
@@ -59,7 +58,7 @@ public class AchievementActivity extends AppCompatActivity {
 
         HashMap<String, Object> atom;
 
-        for (int i = 0; i < len; i++) {
+        for (GameAchievement aRawData : rawData) {
 
             atom = new HashMap<String, Object>() {{
                 put("title", null);
@@ -67,9 +66,9 @@ public class AchievementActivity extends AppCompatActivity {
                 put("isAchieved", null);
             }};
 
-            atom.put("title", rawData.get(i).getName());
-            atom.put("info", rawData.get(i).getDetail());
-            atom.put("isAchieved", rawData.get(i).isFinished()?"ACHIEVED":"NOT ACHIEVED");
+            atom.put("title", aRawData.getName());
+            atom.put("info", aRawData.getDetail());
+            atom.put("isAchieved", aRawData.isFinished() ? "ACHIEVED" : "NOT ACHIEVED");
 
             ans.add(atom);
 

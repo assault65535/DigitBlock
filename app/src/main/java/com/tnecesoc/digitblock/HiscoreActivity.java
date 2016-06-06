@@ -16,8 +16,6 @@ import java.util.Map;
 
 public class HiscoreActivity extends AppCompatActivity {
 
-    private ListView scoreList;
-
     private ScoreFileControl scoreFileControl;
 
     @Override
@@ -34,9 +32,10 @@ public class HiscoreActivity extends AppCompatActivity {
             }
         });
 
-        scoreList = (ListView) findViewById(R.id.listView);
+        ListView scoreList = (ListView) findViewById(R.id.listView);
         scoreFileControl = new ScoreFileControl();
 
+        assert scoreList != null;
         scoreList.setAdapter(
                 new SimpleAdapter(
                         this,
@@ -48,7 +47,7 @@ public class HiscoreActivity extends AppCompatActivity {
         );
     }
 
-    List<Map<String, Object>> givePresetData() {
+    private List<Map<String, Object>> givePresetData() {
 
         scoreFileControl.initHiscore();
         final ArrayList<BigInteger> rawData = scoreFileControl.getHigherScoreData();

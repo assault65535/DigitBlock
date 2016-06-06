@@ -11,17 +11,12 @@ import android.widget.Toast;
 import com.tnecesoc.Control.GameBoard;
 import com.tnecesoc.Views.Block;
 
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
     private GameBoard gameBoard = new GameBoard(this);
 
-
-
     private TextView nowScore, higherScore;
-
-    public HashMap<Block, FrameLayout> screen_pos;
 
     public FrameLayout[][] theCellLocatedIn;
 
@@ -87,6 +82,46 @@ public class MainActivity extends AppCompatActivity {
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         getWindow().setFlags(flag, flag);
 
+        adaptGameFrame();
+
+        attachLocalReferences();
+
+        findViewById(R.id.restart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameBoard.clear();
+                gameBoard.refreshScore(nowScore, higherScore);
+            }
+        });
+
+
+
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (gameBoard.saveHiscore()) {
+                    Toast.makeText(MainActivity.this, "New record!", Toast.LENGTH_SHORT).show();
+                }
+
+                finish();
+            }
+        });
+
+        gameBoard.initialize();
+
+        gameBoard.generateNewBlock();
+
+    }
+
+    private void declareGameOver() {
+
+        Toast.makeText(MainActivity.this, "Now it's a dead end. Please restart.", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void adaptGameFrame() {
+
         Block[][] screen = new Block[4][4];
 
         screen[0][0] = (Block) findViewById(R.id.b11);
@@ -115,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void attachLocalReferences() {
+
         theCellLocatedIn = new FrameLayout[4][4];
 
         theCellLocatedIn[0][0] = (FrameLayout) findViewById(R.id.b11_pos);
@@ -139,37 +178,6 @@ public class MainActivity extends AppCompatActivity {
 
         nowScore = (TextView) findViewById(R.id.nowScore);
         higherScore = (TextView) findViewById(R.id.HiScore);
-
-        gameBoard.generateNewBlock();
-
-        gameBoard.initialize();
-
-        findViewById(R.id.restart).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gameBoard.clear();
-                gameBoard.refreshScore(nowScore, higherScore);
-            }
-        });
-
-
-
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (gameBoard.saveHiscore()) {
-                    Toast.makeText(MainActivity.this, "New record!", Toast.LENGTH_SHORT).show();
-                }
-
-                finish();
-            }
-        });
-    }
-
-    void declareGameOver() {
-
-        Toast.makeText(MainActivity.this, "Now it's a dead end. Please restart.", Toast.LENGTH_SHORT).show();
 
     }
 
