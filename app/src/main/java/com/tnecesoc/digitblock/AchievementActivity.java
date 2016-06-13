@@ -1,5 +1,6 @@
 package com.tnecesoc.digitblock;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,7 @@ public class AchievementActivity extends AppCompatActivity {
         });
 
         ListView achievementList = (ListView) findViewById(R.id.listView2);
-        achievementFileControl = new AchievementFileControl();
+        achievementFileControl = new AchievementFileControl(getSharedPreferences("Achievement", Activity.MODE_PRIVATE));
 
         assert achievementList != null;
         achievementList.setAdapter(new SimpleAdapter(

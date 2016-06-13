@@ -33,7 +33,7 @@ public class AchievementControl {
             boolean finalState = aCache.isFinished();
 
             if (initialState != finalState && finalState)
-               Toast.makeText(activity, "Achievement [" + aCache.getName() + "] Achieved.", Toast.LENGTH_SHORT).show();
+               Toast.makeText(activity, "Achievement [" + aCache.getName() + "] Unlocked.", Toast.LENGTH_SHORT).show();
         }
 
     }

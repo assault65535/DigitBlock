@@ -69,7 +69,7 @@ public class GameAchievementList {
         put(GameAch_PleaseUninstall.class, 10);
     }};
 
-    public static ArrayList<String> findNameById = new ArrayList<String>() {{
+    public static ArrayList<String> achievementNameList = new ArrayList<String>() {{
         add(AchievementNames.YOU_STARTED);
         add(AchievementNames.YOU_MOVED);
         add(AchievementNames.BLOCK8_GET);

@@ -1,5 +1,6 @@
 package com.tnecesoc.digitblock;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,7 +34,7 @@ public class HiscoreActivity extends AppCompatActivity {
         });
 
         ListView scoreList = (ListView) findViewById(R.id.listView);
-        scoreFileControl = new ScoreFileControl();
+        scoreFileControl = new ScoreFileControl(getSharedPreferences("score", Activity.MODE_PRIVATE));
 
         assert scoreList != null;
         scoreList.setAdapter(

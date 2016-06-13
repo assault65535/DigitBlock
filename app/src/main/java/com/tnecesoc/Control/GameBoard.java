@@ -1,6 +1,7 @@
 package com.tnecesoc.Control;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.widget.TextView;
 import com.tnecesoc.digitblock.MainActivity;
 
@@ -33,15 +34,18 @@ public class GameBoard {
     public GameBoard(MainActivity activity) {
         this.activity = activity;
         inGameAnimationControl = new InGameAnimationControl(activity);
+
         scoreControl = new ScoreControl(this);
-        scoreFileControl = new ScoreFileControl();
+
         achievementControl = new AchievementControl(activity, this);
-        achievementFileControl = new AchievementFileControl();
+
     }
 
     public void initialize() {
+        scoreFileControl = new ScoreFileControl(activity.getSharedPreferences("score", Activity.MODE_PRIVATE));
         scoreFileControl.initHiscore();
         scoreControl.hiscoreCache = scoreFileControl.getHigherScoreData();
+        achievementFileControl = new AchievementFileControl(activity.getSharedPreferences("Achievement", Activity.MODE_PRIVATE));
         achievementFileControl.initFile();
         achievementControl.cache = achievementFileControl.getAchievementRecord();
     }

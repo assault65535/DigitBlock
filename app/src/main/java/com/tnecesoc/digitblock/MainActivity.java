@@ -2,6 +2,7 @@ package com.tnecesoc.digitblock;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public FrameLayout[][] theCellLocatedIn;
 
-    //　used in onTouchEvent()
+    // used in onTouchEvent()
     private float x1, x2, y1, y2;
 
     // check if isFailure() returns true every 10 moves.
@@ -73,6 +74,20 @@ public class MainActivity extends AppCompatActivity {
         gameBoard.refreshAchievements();
 
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (gameBoard.saveHiscore()) {
+                Toast.makeText(MainActivity.this, "New record!", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.tnecesoc.Control;
 
+import android.content.SharedPreferences;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 
